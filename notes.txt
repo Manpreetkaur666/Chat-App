@@ -1,0 +1,9 @@
+Steps
+
+- npm init - to initialize npm i.e, node package manager
+   it  will install package.json file
+
+- npm i express - which is node js framework to work with node js
+   it will install node_modules folder and package-lock.json file
+
+   

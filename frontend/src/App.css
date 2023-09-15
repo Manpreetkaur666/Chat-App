@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Work+Sans:wght@300&display=swap");
+
+:root {
+  --first-color: #075e54;
+  --second-color: #128c7e;
+  --third-color: #25d366;
+  --forth-color: #dcf8c6;
+  --fifth-color: #c6f6d5;
+  --Green-200: #9ae6b4;
+  --Green-300: #68d391;
+  --red-500: #e53e3e;
+  --red-600: #c53030;
+}
+
+.App {
+  min-height: 100vh;
+  background-image: url("./Images/background.jpeg");
+  background-color: var(--first-color);
+  display: flex;
+  color: black;
+}
+
+.home .title {
+  color: green;
+  font-weight: 500;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
+}
+
+/********************* Signup page -- SignUp.js ******************/
+
+.register Input {
+  background-color: var(--fifth-color);
+}
+
+.register Input:focus {
+  background-color: white;
+}
+
+.register .show {
+  background-color: var(--fifth-color);
+}
+
+.register .submit-button {
+  background-color: var(--Green-200);
+}
+
+.register .submit-button:hover {
+  background-color: var(--Green-300);
+}

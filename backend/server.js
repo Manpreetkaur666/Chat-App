@@ -1,23 +1,33 @@
 const express = require('express');
 const chats = require('./data/data');
-require('dotenv').config();
+
+// to make console in terminal colorful
+const colors = require('colors');
+const connectToMongo = require('./db');
+const { notFound, errorHandler } = require('./middleware/errorMiddleware');
+const path = require('path');
+require("dotenv").config();
+require('dotenv').config({ path: '../.env' });
+
 
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
+console.log(`"Port is : ${PORT}`);
+console.log("hello");
+
+connectToMongo();
+
+app.use(express.json()); // to accept json data
 
 app.get('/', (req, res) => {
     res.send("Hello world");
 });
 
-app.get('/api/chat', (req, res) => {
-    res.send(chats);
-});
+app.use('/auth', require('./routes/userRoute'));
 
-app.get('/api/chat/:id', (req, res) => {
-    const singlechat = chats.find((c) => c._id === req.params.id);
-    res.send(singlechat);
-})
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(PORT,
-    console.log(`Server Started on PORT ${PORT}`));
+    console.log(`Server Started on PORT ${PORT}`.yellow.bold));
